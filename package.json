@@ -6,12 +6,13 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint && npm run lint:style && npm run lint:prettier",
+        "lint": "next lint && npm run lint:prettier && npm run lint:style",
         "lint:style": "stylelint --fix \"./**/*.scss\" --customSyntax postcss-scss",
         "lint:prettier": "prettier --check \"./**/*.{js,jsx,ts,tsx}\" --end-of-line auto",
         "prettier": "prettier -c --write \"./**/*.{js,jsx,ts,tsx,scss,json}\"",
         "prepare": "husky install",
-        "lint-staged": "lint-staged"
+        "lint-staged": "lint-staged",
+        "generator": "graphql-codegen --config codegen.yml"
     },
     "lint-staged": {
         "**/*.scss": "stylelint --customSyntax postcss-scss",
@@ -21,6 +22,9 @@
         ]
     },
     "dependencies": {
+        "@apollo/client": "^3.6.9",
+        "graphql": "^16.5.0",
+        "moment": "^2.29.4",
         "next": "12.1.6",
         "react": "18.2.0",
         "react-dom": "18.2.0"
@@ -28,21 +32,27 @@
     "devDependencies": {
         "@commitlint/cli": "^17.0.2",
         "@commitlint/config-conventional": "^17.0.2",
+        "@graphql-codegen/cli": "2.11.6",
         "@types/node": "18.0.0",
         "@types/react": "18.0.14",
         "@types/react-dom": "18.0.5",
+        "autoprefixer": "^10.4.8",
         "eslint": "8.18.0",
         "eslint-config-next": "12.1.6",
         "eslint-config-prettier": "^8.5.0",
+        "html-react-parser": "^3.0.1",
         "husky": "^8.0.1",
         "lint-staged": "^13.0.3",
-        "postcss": "^8.4.14",
+        "postcss": "^8.4.16",
         "postcss-scss": "^4.0.4",
         "prettier": "2.7.1",
         "sass": "^1.54.4",
         "stylelint": "14.9.1",
         "stylelint-config-prettier": "9.0.3",
         "stylelint-config-standard-scss": "^4.0.0",
-        "typescript": "4.7.4"
+        "tailwindcss": "^3.1.8",
+        "typescript": "4.7.4",
+        "@graphql-codegen/typescript": "2.7.3",
+        "@graphql-codegen/introspection": "2.2.1"
     }
 }
